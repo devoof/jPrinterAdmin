@@ -39,7 +39,7 @@ You can add following jobs to schedule which can be automated:
 
 
 
-It is written in Java in the netbeans ide and published under then gnu public license.
+It is written in Java in the netbeans ide and published under the gpl v2 license.
 
 It uses the following 3rd Party libraries and partly modified sample code.
 
