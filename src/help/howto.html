@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 4.1.3.2 (Linux)">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGEDBY" CONTENT="stefan ">
+	<META NAME="CHANGED" CONTENT="20140128;195125533279903">
+	<STYLE TYPE="text/css">
+	<!--
+		P { margin-bottom: 0.21cm }
+		PRE.ctl { font-family: "Lohit Hindi", monospace }
+		H2 { margin-bottom: 0.21cm }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; font-style: italic }
+		H2.cjk { font-size: 14pt; font-style: italic }
+		H2.ctl { font-family: "Lohit Hindi"; font-size: 14pt; font-style: italic }
+		H3 { margin-bottom: 0.21cm }
+		H3.western { font-family: "Arial", sans-serif }
+		H3.ctl { font-family: "Lohit Hindi" }
+		A:link { so-language: zxx }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-GB" DIR="LTR">
+<H2 CLASS="western"><A NAME="__RefHeading__106_1158073005"></A>User-Guide	01/28/2013</H2>
+<DIV ID="Inhaltsverzeichnis1" DIR="LTR">
+	<DIV ID="Inhaltsverzeichnis1_Head" DIR="LTR">
+		<P STYLE="margin-top: 0.42cm; page-break-after: avoid"><FONT FACE="Arial, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><B>Content</B></FONT></FONT></P>
+	</DIV>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm"><A HREF="#__RefHeading__106_1158073005">User-Guide
+	01/28/2013	1</A></P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm"><A HREF="#__RefHeading__108_1158073005">1
+	Getting started	1</A></P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm"><A HREF="#__RefHeading__110_1158073005">1.2
+	Creating a database and connect to it	1</A></P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm"><A HREF="#__RefHeading__112_1158073005">1.3
+	Setting up your Network-environment	1</A></P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm"><A HREF="#__RefHeading__114_1158073005">1.4
+	Test your configuration	2</A></P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm"><A HREF="#__RefHeading__116_1158073005">2.
+	What to do next	2</A></P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm"><A HREF="#__RefHeading__118_1158073005">2.1
+	Configure the values that should be read from the printer	2</A></P>
+</DIV>
+<H2 CLASS="western"></H2>
+<H2 CLASS="western"><A NAME="__RefHeading__108_1158073005"></A>1
+Getting started</H2>
+<PRE CLASS="western"></PRE><H3 CLASS="western">
+1.1 choose your database</H3>
+<P STYLE="margin-bottom: 0cm">if you don't need access for more then
+one user or want to let a server-job let run jobs (e.g. Reading the
+printers data periodically) the local database (sqlite) would be the
+best choice. 
+</P>
+<P STYLE="margin-bottom: 0cm">But if you need a server or several
+users you must choose between Microsofts SQL-Server and mysql.</P>
+<PRE CLASS="western"></PRE><H3 CLASS="western">
+<A NAME="__RefHeading__110_1158073005"></A>1.2 Creating a database
+and connect to it</H3>
+<PRE CLASS="western"></PRE><P STYLE="margin-bottom: 0cm">
+in the menu-bar click &quot;Settings&quot; and then on the entry
+&quot;Connection&quot;. The Connection-Window appears.</P>
+<P STYLE="margin-bottom: 0cm">Click on the button &quot;create
+database&quot; then in the combo-box “database” choose your
+database. In case of a local database all you need to do is clicking
+the button &quot;create&quot;. jprinteradmin will create a sqlite
+database-file in your appdata folder in the sub-folder
+&quot;.jprinteradmin&quot;. if you choose one of the others you have
+to fill in host, port ( the default will be refilled ), administrator
+credentials, the name of the database that will be created and the
+credentials of the user that will be created to connect to the
+database.</P>
+<P STYLE="margin-bottom: 0cm">click create. In the Connection-Window
+click &quot;connect&quot;.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">tip: if something went wrong you have
+to delete the database-file in case of a local installation or delete
+the database and the created user in case of an MS-SQL-Server or a
+MySQL-Server installation.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<H3 CLASS="western"><A NAME="__RefHeading__112_1158073005"></A>1.3
+Setting up your Network-environment</H3>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Click &quot;Settings&quot; in the
+menu-bar and then &quot;Network&quot;.</P>
+<P STYLE="margin-bottom: 0cm">Fill in first and last IP-address and
+give it a name. This can be shown as a field and may be useful if you
+have several IP-areas in different locations.</P>
+<P STYLE="margin-bottom: 0cm">Click on the button &quot;add&quot;.</P>
+<P STYLE="margin-bottom: 0cm">an example would be:</P>
+<P STYLE="margin-bottom: 0cm">first address: 192.168.2.200</P>
+<P STYLE="margin-bottom: 0cm">last address: 192.168.2.250</P>
+<P STYLE="margin-bottom: 0cm">customer: default network</P>
+<PRE CLASS="western"></PRE><H3 CLASS="western">
+<A NAME="__RefHeading__114_1158073005"></A>1.4 Test your
+configuration</H3>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">In the main-window click &quot;read
+printer-data&quot;. The program should check any IP for a printer and
+when ready show them in the main-grid.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<H2 CLASS="western"><A NAME="__RefHeading__116_1158073005"></A>2.
+What to do next</H2>
+<PRE CLASS="western"></PRE><H3 CLASS="western">
+<A NAME="__RefHeading__118_1158073005"></A>2.1 Configure the values
+that should be read from the printer</H3>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Go to &quot;Settings&quot; -&gt;
+&quot;Request-Values-Settings&quot;</P>
+</BODY>
+</HTML>

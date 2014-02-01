@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.6" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+      <ResourceString bundle="jprinteradmin/language.properties" key="PLANER" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+    </Property>
+    <Property name="modal" type="boolean" value="true"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
+  </Events>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="statusBar" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="label4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jComboBoxKind" min="-2" pref="141" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jComboBoxSchedule" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonDeletePlan" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldNewPlan" min="-2" pref="172" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonAddPlan" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonChangeSchedule" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" pref="128" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jCheckBoxDay7" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jCheckBoxDay2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                      <Component id="jCheckBoxDay14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jCheckBoxDay19" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jCheckBoxDay13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jCheckBoxDay15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxDay16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxDay17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxDay18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxDay23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxDay22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxDay21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxDay20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxDay24" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jCheckBoxDay26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxDay25" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxDay28" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxDay27" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="label3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jComboBoxJobs" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonAddJob" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane1" min="-2" pref="356" max="-2" attributes="0"/>
+                          <Component id="jButtonDeleteJob" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="label4" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="jComboBoxSchedule" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldNewPlan" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonAddPlan" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonDeletePlan" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxKind" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButtonChangeSchedule" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jPanel2" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="label3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jPanel3" max="32767" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jCheckBoxDay1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay4" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay5" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay6" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay7" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay8" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay9" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay10" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay11" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay12" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jCheckBoxDay25" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jCheckBoxDay26" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                                  <Component id="jCheckBoxDay27" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jCheckBoxDay28" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jCheckBoxDay13" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jCheckBoxDay14" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jCheckBoxDay15" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                                  <Component id="jCheckBoxDay16" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay17" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay18" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay19" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay20" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay21" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay22" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay23" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxDay24" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jComboBoxJobs" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAddJob" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="219" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonDeleteJob" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="statusBar" min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="statusBar">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="statusBarLabel" min="-2" pref="527" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="statusBarLabel" min="-2" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="statusBarLabel">
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="java.awt.Label" name="label4">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="jprinteradmin/language.properties" key="PLAN:" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboBoxSchedule">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxScheduleItemStateChanged"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldNewPlan">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNewPlanActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonAddPlan">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="jprinteradmin/language.properties" key="ADD" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddPlanActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboBoxJobs">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonAddJob">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="jprinteradmin/language.properties" key="ADD" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddJobActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable1">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="0" rowCount="3"/>
+            </Property>
+            <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
+              <JTableSelectionModel selectionMode="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseClicked"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jCheckBoxSunday" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxMonday" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxWednesday" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxThursday" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxSaturday" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxFriday" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxTuesday" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="label1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="label1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                  <Component id="jCheckBoxMonday" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <Component id="jCheckBoxTuesday" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxWednesday" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxThursday" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxFriday" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxSaturday" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxSunday" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxThursday">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="THURSDAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxThursdayActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxSunday">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="SUNDAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxSundayActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxSaturday">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="SATURDAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxMonday">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="MONDAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxWednesday">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="WEDNESDAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxWednesdayActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxFriday">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="FRIDAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxFridayActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxTuesday">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="TUESDAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Label" name="label1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="WEEKDAYS" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jCheckBoxJuly" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxOctober" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxNovember" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxDecember" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAugust" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxMay" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxJune" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxFebruary" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxJanuary" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxSeptember" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxMarch" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="label2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxApril" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="label2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                  <Component id="jCheckBoxJanuary" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxFebruary" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxMarch" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxApril" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxMay" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxJune" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxJuly" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxAugust" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxSeptember" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxOctober" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxNovember" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBoxDecember" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxJanuary">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="JANUARY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxFebruary">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="FEBRUARY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxFebruaryActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxMarch">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="MARCH" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxApril">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="APRIL" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxMay">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="MAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxJuly">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="JULY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxJune">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="JUNE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAugust">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="AUGUST" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxSeptember">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="SEPTEMBER" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxOctober">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="OCTOBER" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxNovember">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="NOVEMBER" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxNovemberActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxDecember">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="DECEMBER" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Label" name="label2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="jprinteradmin/language.properties" key="MONTHS" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel3">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Component class="java.awt.Label" name="label3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="jprinteradmin/language.properties" key="DAYS-IN-MONTH" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="7"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="6"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="3"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="5"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="4"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="9"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="8"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay11">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="11"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="12"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay13">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="13"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay14">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="14"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay15">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="15"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay16">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="16"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay17">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="17"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay18">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="18"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay19">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="19"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay20">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="20"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay21">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="21"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay22">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="22"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay23">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="23"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay24">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="24"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay26">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="26"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay25">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="25"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay27">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="27"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboBoxKind">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxKindItemStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxKindActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDay28">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="28"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="jprinteradmin/language.properties" key="KIND:" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonChangeSchedule">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="jprinteradmin/language.properties" key="CHANGE-SCHEDULE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonChangeScheduleActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonDeleteJob">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="jprinteradmin/language.properties" key="DELETE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteJobActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonDeletePlan">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="jprinteradmin/language.properties" key="DELETE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeletePlanActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
