@@ -58,3 +58,22 @@ jtds 1.2
 jOpenDocument 1.3
 
 
+
+Ways to start the application
+
+1. Executing the jar file
+
+Copy the jar-file and the lib-folder to a folder the user has write access to
+E.g. /home/<username>/jprinteradmin or c:\users\<username>\jprinteradmin.
+Make a shortcut e.g. a jprinteradmin.bat file with the content “javaw -jar <pathToJarFile>”.
+
+2. Using Web-Start
+Place the whole folder to a web-server.
+Add the certificate to signer-ca in the java control panel under “security” → “certificates”
+Navigate your Browser to the place where you put the folder in.
+Start the launch.jnlp file.
+Trust the application, if you wants to start it
+You can make short-cut from the java control panel by navigate to “Basic” → “View temporary files” → Right Click on jprinteradmin → install shortcut
+
+
+
