@@ -1,0 +1,6 @@
+IPSTART=NAME
+IPEND=REQUESTMETHOD
+ID=ID
+\ PRINTER-VALUES\ DELTED.=\ Drucker-Werte gel\u00f6scht.
+AN\ ERROR\ OCCURRED\:\ {0}=An error occurred: {0}
+REQUESTMETHOD\ {0}\ ADDED=RequestMethod {0} added

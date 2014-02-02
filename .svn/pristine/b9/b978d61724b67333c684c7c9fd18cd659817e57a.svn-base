@@ -1,0 +1,182 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package jprinteradmin;
+
+import Settings.createDatabase;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author stefan
+ */
+public class database {
+
+    public static void setConn() {
+        try {
+            Class.forName(getJDBCclass());
+            switch (utility.iniDatabaseType) {
+                case "local":
+                    conn = DriverManager.getConnection(getConnString());
+                    break;
+                case "mysql":
+                    conn = DriverManager.getConnection(getConnString(), utility.iniDatabaseUser, utility.iniDatabasePassword);
+                    break;
+                case "mssql":
+                    conn = DriverManager.getConnection(getConnString(), utility.iniDatabaseUser, utility.iniDatabasePassword);
+                    break;
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(createDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private static String getJDBCclass() {
+        String class1 = null;
+        switch (utility.iniDatabaseType) {
+            case "local":
+                class1 = "org.sqlite.JDBC";
+                break;
+            case "mysql":
+                class1 = "com.mysql.jdbc.Driver";
+                break;
+            case "mssql":
+                class1 = "net.sourceforge.jtds.jdbc.Driver";
+                break;
+        }
+        return class1;
+    }
+
+    private static String getConnString() {
+        String connString = null;
+        switch (utility.iniDatabaseType) {
+            case "local":
+                connString = "jdbc:sqlite:" + jprinteradmin.utility.defaultDirectory() + File.separator + ".jprinteradmin" + File.separator + "jprinteradmin.db";
+                break;
+            case "mysql":
+                connString = ("jdbc:mysql://" + utility.iniDatabaseHost + ":" + utility.iniDatabasePort + "/" + utility.iniDatabaseName + "?zeroDateTimeBehavior=convertToNull");
+                break;
+            case "mssql":
+                connString = "jdbc:jtds:sqlserver://10.0.1.16:" + utility.iniDatabasePort + "/" + utility.iniDatabaseName;
+                break;
+
+        }
+        return connString;
+    }
+    public static int databaseState;
+/*
+    public static List getsResult2(String statement, Object object) {
+        List<iparea> result = new ArrayList<>();
+
+        try {
+
+            Statement stat = database.conn.createStatement();
+            ResultSet rs = stat.executeQuery(statement);
+            while (rs.next()) {
+                iparea iparea1 = new iparea(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                result.add(iparea1);
+            }
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return result;
+    }
+*/  
+  public static Connection conn;
+
+    public static void setLock(String table, int id) {
+        System.out.println("setLock:" + System.getProperty("user.name") + " - " + table + " - " + id);
+        try {
+            try (Statement stat = conn.createStatement()) {
+                System.out.println("INSERT INTO DBLOCKS (" + utility.dbQuotes + "user" + utility.dbQuotes + ", " + utility.dbQuotes + "table" + utility.dbQuotes + ", id, " + utility.dbQuotes + "time" + utility.dbQuotes + ") VALUES ('" + utility.user + "', '" + table + "', '" + id + "', " + utility.dbNow + ")");
+                stat.executeUpdate("INSERT INTO DBLOCKS (" + utility.dbQuotes + "user" + utility.dbQuotes + ", " + utility.dbQuotes + "table" + utility.dbQuotes + ", id, " + utility.dbQuotes + "time" + utility.dbQuotes + ") VALUES ('" + utility.user + "', '" + table + "', '" + id + "', " + utility.dbNow + ")");
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public static lock getLock(String table, int id) {
+        lock rlock = new lock();
+        rlock.isLocked = false;
+        try {
+            try (Statement stat = conn.createStatement()) {
+                String query = "SELECT " + utility.dbQuotes + "user" + utility.dbQuotes + "," + utility.dbQuotes + "time" + utility.dbQuotes + " from DBLOCKS WHERE id=" + id + " AND " + utility.dbQuotes + "table" + utility.dbQuotes + "='" + table + "'";
+                ResultSet rs = stat.executeQuery(query);
+                if (rs.next()) {
+                    rlock.user = rs.getString(1);
+                    rlock.datetime = rs.getString(2);
+                    rlock.isLocked = true;
+                    rlock.table = table;
+                    rlock.id = id;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rlock;
+    }
+
+    public static void delLock(String table, int id) {
+        System.out.println("delLock:" + System.getProperty("user.name") + " - " + table + " - " + id);
+        try {
+            try (Statement stat = conn.createStatement()) {
+                String query = "DELETE FROM DBLOCKS WHERE " + utility.dbQuotes + "user" + utility.dbQuotes + "='" + System.getProperty("user.name") + "' AND " + utility.dbQuotes + "table" + utility.dbQuotes + "='" + table + "' AND id='" + id + "'";
+                System.out.println(stat.executeUpdate(query) + " deleted");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(database.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+
+    }
+
+    public static int getNextId(String table) {
+        int id = 0;
+        try {
+            try (Statement stat = conn.createStatement()) {
+                String query = "SELECT MAX(id) FROM " + table + "";
+                try (ResultSet rs = stat.executeQuery(query)) {
+                    if (rs.next()) {
+                        id = rs.getInt(1);
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return ++id;
+    }
+
+    public static class lock {
+
+        public String datetime;
+        public String user;
+        public String table;
+        public int id;
+        public Boolean isLocked;
+
+        public lock() {
+        }
+
+        private lock(String datetime, String user, Boolean locked) {
+        }
+    }
+}

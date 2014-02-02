@@ -60,6 +60,7 @@ public class PrinterReport {
     public List<String> reportKinds = new ArrayList();
     public List<Integer> reportLinesSubTotal = new ArrayList();
     public List<Integer> reportLinesTotal = new ArrayList();
+    public String message = "";
 
     public int loadReport(String name) {
         //returns -1 if an error occured; 0 if no report was found with the fiven name; 1if if th report was loaded succesfully
@@ -118,6 +119,7 @@ public class PrinterReport {
 
         } catch (SQLException ex) {
             Logger.getLogger(PrinterReport.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         return result;
     }
@@ -664,6 +666,7 @@ public class PrinterReport {
             writer.close();
         } catch (IOException ex) {
             Logger.getLogger(PrinterReport.class.getName()).log(Level.SEVERE, null, ex);
+            message = ex.getLocalizedMessage();
         }
         
         return filename;
@@ -720,6 +723,7 @@ public class PrinterReport {
             }
         } catch (IOException ex) {
             Logger.getLogger(PrinterReport.class.getName()).log(Level.SEVERE, null, ex);
+            message = ex.getLocalizedMessage();
         }
         
         return filename;
@@ -795,8 +799,10 @@ public class PrinterReport {
             ods.saveAs(file1);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(PrinterReport.class.getName()).log(Level.SEVERE, null, ex);
+            message = ex.getLocalizedMessage();
         } catch (IOException ex) {
             Logger.getLogger(PrinterReport.class.getName()).log(Level.SEVERE, null, ex);
+            message = ex.getLocalizedMessage();
         }
         return filename;
     }

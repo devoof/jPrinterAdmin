@@ -104,7 +104,10 @@ public class PlanerWindow {
                             rs2 = st2.executeQuery("SELECT " + Utility.dbNow); //NOI18N
                             while (rs2.next()) {
                                 finishedDate = rs2.getString(1);
-                            }                            
+                            }   
+                            if ( pr.message.length() > 0 ) {
+                                result = result + ": " + pr.message;
+                            }
                             String updateQuery = "INSERT INTO SCHEDULE_LOG (id, startDate, finishedDate, schedule_id, job_id, " + Utility.dbQuotes + "result" + Utility.dbQuotes + ") VALUES ('" + Database.getNextId("SCHEDULE_LOG") + "', '" + startDate + "', '" + finishedDate + "', '" + validJobs.get(i)[0] + "', '" + validJobs.get(i)[1] + "', '" + result + "')"; //NOI18N
                             st2.execute(updateQuery);                            
                             break;
@@ -116,6 +119,9 @@ public class PlanerWindow {
                             Dataexchange.ExportJob ej = new Dataexchange.ExportJob();
                             ej.load(rs.getInt(3));
                             result = ej.executeBackup(false).toString();
+                            if ( ej.message.length() > 0 ) {
+                                result = result + ": " + ej.message;
+                            }                            
                             rs3 = st2.executeQuery("SELECT " + Utility.dbNow); //NOI18N
                             while (rs3.next()) {
                                 finishedDate = rs3.getString(1);

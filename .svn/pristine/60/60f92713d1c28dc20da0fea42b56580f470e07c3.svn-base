@@ -1,0 +1,63 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package jprinteradmin;
+
+import static jprinteradmin.mainWindow.packColumn;
+
+/**
+ *
+ * @author stefan
+ */
+public class JPrinterAdmin {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static mainWindow mw;
+
+    public static void main(String[] args) {
+        utility.setIniValues();
+        utility.setUser();
+        try {
+            database.setConn();
+        } catch (Exception ex) {
+        }
+        database.databaseState = utility.checkDB();
+        String todo;
+        if (args.length == 0) {
+
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if (utility.iniLF.equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+                java.util.logging.Logger.getLogger(mainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+
+            java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("jprinteradmin/language");
+            System.out.println("locale: " + bundle.getLocale());
+            mw = new mainWindow();
+            mw.checkdb();
+            if (database.databaseState == 4) {
+                mw.getDBValues();
+
+            }
+
+            mw.setVisible(true);
+        } else {
+            switch (args[0]) {
+                case "planer":
+                    System.out.println("planer");
+                    planer pl = new planer();
+                    pl.start();
+                    break;
+            }
+        }
+
+    }
+}

@@ -28,6 +28,7 @@ public class ExportJob implements Runnable {
     public String folder;
     public int keepExports;
     public int id = -1;
+    public String message = "";
     
     public Boolean executeBackup(Boolean gui) {
         if (!gui && Database.countLocks() > 0) {
@@ -126,12 +127,16 @@ public class ExportJob implements Runnable {
                 Logger.getLogger(ExportWindow.class.getName()).log(Level.SEVERE, null, ex);
                 if (gui) {
                     jprinteradmin.JPrinterAdmin.mw.ex.statusBarLabel.setText(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("AN ERROR OCCURRED") + " " + ex.getLocalizedMessage());
-                }              
+                } else {
+                    message = ex.getLocalizedMessage();
+                }             
             } catch (IOException ex) {
                 Logger.getLogger(ExportJob.class.getName()).log(Level.SEVERE, null, ex);
                 if (gui) {
                     jprinteradmin.JPrinterAdmin.mw.ex.statusBarLabel.setText(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("AN ERROR OCCURRED") + " " + ex.getLocalizedMessage());
-                }             
+                } else {
+                    message = ex.getLocalizedMessage();
+                }           
             }   
             Database.unlock();
         }    

@@ -1,0 +1,7 @@
+RU: http://[ip]:8000/rps/dcounter.cgi?CorePGTAG=13
+AU: http://[ip]:8000/rps/nativetop.cgi?RUIPNxBundle=&CorePGTAG=PGTAG_CONF_ENV_PAP
+CN: iR
+GET: data
+Tag: script
+VN: 15
+SR: CDATAwritevalue101
