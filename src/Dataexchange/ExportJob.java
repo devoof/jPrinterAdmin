@@ -31,7 +31,8 @@ public class ExportJob implements Runnable {
     public String message = "";
     
     public Boolean executeBackup(Boolean gui) {
-        if (!gui && Database.countLocks() > 0) {
+        if (!gui && Database.countLocks() > 1) {
+            this.message = java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("THERE IS AT LEAST ONE LOCK");
             return false;
         } else if (gui && Database.countLocks() > 1) {
             jprinteradmin.JPrinterAdmin.mw.ex.statusBarLabel.setText(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("AN ERROR OCCURRED") + " " + java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("THERE IS AT LEAST ONE LOCK"));
