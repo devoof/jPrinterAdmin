@@ -290,7 +290,7 @@ public class Utility {
                 case "mysql":
                     string = string.replace("'", "\\'");                                     
                     break;
-                case "sqlite":    
+                case "local":    
                     string = string.replace("'", "\\'");                                     
                     break;
                 case "mssql":
@@ -302,6 +302,21 @@ public class Utility {
             return string; 
         }
         return "NULL";
+    }
+    
+    public static String escapeHTML(String string) {
+        string = string.replace("ä", "&auml;");
+        string = string.replace("ü", "&uuml;");
+        string = string.replace("ö", "&öuml;");
+        string = string.replace("Ä", "&Auml;");
+        string = string.replace("Ü", "&Uuml;");
+        string = string.replace("Ö", "&Ouml;");
+        string = string.replace("ß", "&szlig;");
+        string = string.replace("<", "&gt;");
+        string = string.replace(">", "&lt;");
+        string = string.replace(">", "&nbsp;");
+        
+        return string;
     }
     
     public static String escapeSqlString4export (String string){
@@ -318,7 +333,7 @@ public class Utility {
                 case "mysql":
                     string = string.replace("<StringDelimiter>", "\\'");                                     
                     break;
-                case "sqlite":    
+                case "local":    
                     string = string.replace("<StringDelimiter>", "\\'");                                     
                     break;
                 case "mssql":

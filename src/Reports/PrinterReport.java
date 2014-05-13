@@ -19,17 +19,18 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
+import java.util.Scanner;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import jprinteradmin.Database;
-import jprinteradmin.Utility;
-import java.util.UUID;
-import javax.swing.table.TableModel;
-import org.jopendocument.dom.spreadsheet.SheetTableModel.MutableTableModel;
-import org.jopendocument.dom.spreadsheet.SpreadSheet;
+import javax.activation.*;
 import javax.mail.*;
 import javax.mail.internet.*;
-import javax.activation.*;
+import javax.swing.table.TableModel;
+import jprinteradmin.Database;
+import jprinteradmin.Utility;
+import org.jopendocument.dom.spreadsheet.SheetTableModel.MutableTableModel;
+import org.jopendocument.dom.spreadsheet.SpreadSheet;
 
 /**
  *
@@ -279,7 +280,11 @@ public class PrinterReport {
                     int size = list2.size();
                     String[] ins = new String[size];
                     for (int i = 0; i < size; i++) {
-                        ins[i] = list2.get(i);
+                        if (list2.get(i) == null ) {
+                            ins[i] = "";
+                        } else {
+                            ins[i] = list2.get(i);
+                        }
                     }
                     this.reportAsList.add(ins);     
                     this.reportLinesSubTotal.add(i2);
@@ -685,7 +690,7 @@ public class PrinterReport {
                 writer.write("<HTML>" + System.lineSeparator() + "<HEAD>" + System.lineSeparator());
                 writer.write("<META HTTP-EQUIV=\"content-type\" CONTENT=\"text/html; charset=utf-8\">"+ System.lineSeparator());
                 writer.write("</HEAD>" + System.lineSeparator() + "<BODY>" + System.lineSeparator());
-                writer.write("<H1>" + this.heading + "</H1><br><P ALIGN=\"RIGHT\" FONT-SIZE=\"SMALL\">" + this.name + " " + time.toLocaleString() + "</p>"+ System.lineSeparator());
+                writer.write("<H1>" + Utility.escapeHTML(this.heading) + "</H1><br><P ALIGN=\"RIGHT\" FONT-SIZE=\"SMALL\">" + Utility.escapeHTML(this.name) + " " + time.toLocaleString() + "</p>"+ System.lineSeparator());
                 writer.write("<TABLE BORDER=\"0\" CELLSPACING=\"2\">" + System.lineSeparator() + "<TR>" + System.lineSeparator());
                 for ( int i = 0 ; i < this.reportHeadings.size() ; i++ ){
                     writer.write("<TH BGCOLOR=\"#FFFFCC\">" + this.reportHeadings.get(i) + "</TH>" + System.lineSeparator());
@@ -696,19 +701,19 @@ public class PrinterReport {
                     for ( int ii = 0 ; ii < this.reportAsList.get(i).length ; ii++ ) {
                         if (this.reportKinds.get(ii).equals("String")){
                             if (this.reportLinesSubTotal.contains(i)){
-                                writer.write("<TD BGCOLOR=\"#C0C0C0\"><STRONG>" + this.reportAsList.get(i)[ii] + "</STRONG></TD>" + System.lineSeparator());
+                                writer.write("<TD style=\"white-space:nowrap\" BGCOLOR=\"#C0C0C0\"><STRONG>" + Utility.escapeHTML(this.reportAsList.get(i)[ii]) + "</STRONG></TD>" + System.lineSeparator());
                             } else if (this.reportLinesTotal.contains(i)){
-                                writer.write("<TD BGCOLOR=\"#00FF00\"><STRONG>" + this.reportAsList.get(i)[ii] + "</STRONG></TD>" + System.lineSeparator());
+                                writer.write("<TD style=\"white-space:nowrap\" BGCOLOR=\"#00FF00\"><STRONG>" + Utility.escapeHTML(this.reportAsList.get(i)[ii]) + "</STRONG></TD>" + System.lineSeparator());
                             } else {
-                                writer.write("<TD BGCOLOR=\"#C0C0C0\">" + this.reportAsList.get(i)[ii] + "</TD>" + System.lineSeparator());
+                                writer.write("<TD style=\"white-space:nowrap\" BGCOLOR=\"#C0C0C0\">" + Utility.escapeHTML(this.reportAsList.get(i)[ii]) + "</TD>" + System.lineSeparator());
                             }
                         } else {
                            if (this.reportLinesSubTotal.contains(i)){
-                                writer.write("<TD BGCOLOR=\"#C0C0C0\" ALIGN=\"RIGHT\"><STRONG>" + this.reportAsList.get(i)[ii] + "</STRONG></TD>" + System.lineSeparator());
+                                writer.write("<TD style=\"white-space:nowrap\" BGCOLOR=\"#C0C0C0\" ALIGN=\"RIGHT\"><STRONG>" + Utility.escapeHTML(this.reportAsList.get(i)[ii]) + "</STRONG></TD>" + System.lineSeparator());
                             } else if (this.reportLinesTotal.contains(i)){
-                                writer.write("<TD BGCOLOR=\"#00FF00\" ALIGN=\"RIGHT\"><STRONG>" + this.reportAsList.get(i)[ii] + "</STRONG></TD>" + System.lineSeparator());
+                                writer.write("<TD style=\"white-space:nowrap\" BGCOLOR=\"#00FF00\" ALIGN=\"RIGHT\"><STRONG>" + Utility.escapeHTML(this.reportAsList.get(i)[ii]) + "</STRONG></TD>" + System.lineSeparator());
                             } else {
-                                writer.write("<TD BGCOLOR=\"#C0C0C0\" ALIGN=\"RIGHT\">" + this.reportAsList.get(i)[ii] + "</TD>" + System.lineSeparator());
+                                writer.write("<TD style=\"white-space:nowrap\" BGCOLOR=\"#C0C0C0\" ALIGN=\"RIGHT\">" + Utility.escapeHTML(this.reportAsList.get(i)[ii]) + "</TD>" + System.lineSeparator());
                             }                            
                             
                         }
@@ -856,27 +861,39 @@ public class PrinterReport {
             // create a message
             MimeMessage msg = new MimeMessage(session);
             msg.setFrom(new InternetAddress(fromAddress));
-            InternetAddress[] address = {new InternetAddress(this.destination)};
-            msg.setRecipients(Message.RecipientType.TO, address);
+            String localDest = this.destination.replace(";", ",");
+            String[] destinations = localDest.split(",");
+            for (String destination1 : destinations) {
+                InternetAddress[] address = {new InternetAddress(destination1.trim())};
+                msg.addRecipients(Message.RecipientType.TO, address);
+                
+            }
             msg.setSubject(this.heading);
 
             // create and fill the first message part
-            MimeBodyPart mbp1 = new MimeBodyPart();
-            mbp1.setText("Report from jPrinterAdmin.");
-
-            // create the second message part
-            MimeBodyPart mbp2 = new MimeBodyPart();
-
-                  // attach the file to the message
-            FileDataSource fds = new FileDataSource(filename);
-            mbp2.setDataHandler(new DataHandler(fds));
-            mbp2.setFileName(emailFilename);
-
-            // create the Multipart and add its parts to it
             Multipart mp = new MimeMultipart();
-            mp.addBodyPart(mbp1);
-            mp.addBodyPart(mbp2);
-
+            if ( this.outputAs == 2) {
+                MimeBodyPart mbp1 = new MimeBodyPart();
+                String message = getFile(filename);
+                mbp1.setText("Report from jPrinterAdmin.");
+                mbp1.setContent(message, "text/html; charset=utf-8");
+                
+                mp.addBodyPart(mbp1);
+                
+            } else {
+                MimeBodyPart mbp1 = new MimeBodyPart();
+                mbp1.setText("Report from jPrinterAdmin.");
+                // create the second message part
+                MimeBodyPart mbp2 = new MimeBodyPart();
+                      // attach the file to the message
+                FileDataSource fds = new FileDataSource(filename);
+                mbp2.setDataHandler(new DataHandler(fds));
+                mbp2.setFileName(emailFilename);
+                // create the Multipart and add its parts to it
+            
+                mp.addBodyPart(mbp1);
+                mp.addBodyPart(mbp2);
+            }
             // add the Multipart to the message
             msg.setContent(mp);
 
@@ -910,5 +927,18 @@ public class PrinterReport {
         }        
         return true;
     }
-    
+    public String getFile(String filename){
+        Scanner sc=null;
+        File f= new File(filename);
+        String ausgabe="";
+        try{
+                sc= new Scanner(f);
+        }catch(FileNotFoundException e){
+                System.out.println("Error: File not found!");
+        }
+        while (sc.hasNextLine()){
+                ausgabe=ausgabe+sc.nextLine();
+        }
+        return ausgabe;
+}    
 }

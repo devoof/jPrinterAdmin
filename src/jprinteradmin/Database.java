@@ -136,9 +136,10 @@ public class Database {
                 String instance = "";
 
                 if (Utility.iniDatabaseInstance.length() > 0 ) {
-                    instance = ";instance=" + Utility.iniDatabaseInstance;
-                }                
-                connString = "jdbc:jtds:sqlserver://10.0.1.16:" + Utility.iniDatabasePort + "/" + Utility.iniDatabaseName + instance;
+                    connString = "jdbc:jtds:sqlserver://" + Utility.iniDatabaseHost + "/" + Utility.iniDatabaseName + ";instance=" + Utility.iniDatabaseInstance;
+                } else {               
+                    connString = "jdbc:jtds:sqlserver://" + Utility.iniDatabaseHost + ":" + Utility.iniDatabasePort + "/" + Utility.iniDatabaseName;
+                }
                 break;
 
         }

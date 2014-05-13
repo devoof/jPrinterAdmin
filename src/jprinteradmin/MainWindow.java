@@ -1,6 +1,7 @@
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
+ * webstart web163.we4c5.netcup.net/oof/jPrinterAmdin
  */
 package jprinteradmin;
 
@@ -219,6 +220,9 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jTextFieldSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldSearchKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldSearchKeyReleased(evt);
             }
@@ -226,8 +230,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel3.setText(bundle.getString("SEARCH")); // NOI18N
 
-        java.util.ResourceBundle bundle1 = java.util.ResourceBundle.getBundle("jprinteradmin/language_de_DE"); // NOI18N
-        jButtonDelSel.setText(bundle1.getString("DELETE SELECTED")); // NOI18N
+        jButtonDelSel.setText(bundle.getString("DELETE SELECTED")); // NOI18N
         jButtonDelSel.setEnabled(false);
         jButtonDelSel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,7 +238,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jButtonCancel.setText(bundle1.getString("CANCEL")); // NOI18N
+        jButtonCancel.setText(bundle.getString("CANCEL")); // NOI18N
         jButtonCancel.setEnabled(false);
         jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,6 +255,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         fileMenu.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language_de_DE").getString("F").charAt(0));
         fileMenu.setText(bundle.getString("FILE")); // NOI18N
+        java.util.ResourceBundle bundle1 = java.util.ResourceBundle.getBundle("jprinteradmin/language_de_DE"); // NOI18N
         fileMenu.setActionCommand(bundle1.getString("FILE")); // NOI18N
 
         menuItemExport.setMnemonic('o');
@@ -441,7 +445,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jTextFieldValue, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonChangeSelected)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
                         .addComponent(jButtonDelSel))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -702,6 +706,10 @@ public class MainWindow extends javax.swing.JFrame {
         about about = new about(this, true);
         about.setVisible(true);
     }//GEN-LAST:event_aboutMenuItemActionPerformed
+
+    private void jTextFieldSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSearchKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSearchKeyPressed
 
     /**
      * @param args the command line arguments

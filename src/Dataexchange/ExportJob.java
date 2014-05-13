@@ -102,7 +102,7 @@ public class ExportJob implements Runnable {
                             int i = 0;
                             while (rs.next()) {
                                 i++;
-                                if (i > this.keepExports) {
+                                if (i > this.keepExports + 1) {
                                     File file2del = new File(rs.getString(1));
                                     if (file2del.exists()) {
                                         file2del.delete();

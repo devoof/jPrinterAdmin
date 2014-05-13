@@ -493,7 +493,6 @@ public final class RequestValuesSettings extends javax.swing.JDialog {
             }
         };
         return doc;
-
     }
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
