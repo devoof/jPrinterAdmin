@@ -6,11 +6,16 @@
 package jprinteradmin;
 
 import Settings.IpareaSettings;
-import Settings.RequestValuesSettings;
 import Settings.Planer;
+import Settings.RequestValuesSettings;
 import getPrinterData.GetPrinterValues;
 import help.about;
 import help.help;
+import java.awt.Desktop;
+import static java.awt.MouseInfo.getPointerInfo;
+import java.awt.Point;
+import java.io.IOException;
+import java.net.URI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,6 +27,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
@@ -40,6 +46,8 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         //System.out.println("APPDATA:" + utility.defaultDirectory());
         initComponents();
+        jTable1.setInheritsPopupMenu(true);
+        jTable1.setComponentPopupMenu(jPopupMenu1);
         this.checkdb();
     }
 
@@ -107,6 +115,9 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItemOpenPrinterWindow = new javax.swing.JMenuItem();
+        jMenuItemOpenURL = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jToolBar1 = new javax.swing.JToolBar();
@@ -147,6 +158,30 @@ public class MainWindow extends javax.swing.JFrame {
         contentsMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
 
+        jPopupMenu1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jPopupMenu1PropertyChange(evt);
+            }
+        });
+
+        jMenuItemOpenPrinterWindow.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("jprinteradmin/language"); // NOI18N
+        jMenuItemOpenPrinterWindow.setText(bundle.getString("OPEN PRINTER WINDOW")); // NOI18N
+        jMenuItemOpenPrinterWindow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemOpenPrinterWindowActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItemOpenPrinterWindow);
+
+        jMenuItemOpenURL.setText(bundle.getString("open URL")); // NOI18N
+        jMenuItemOpenURL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemOpenURLActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItemOpenURL);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("jPrinterAdmin " + jprinteradmin.Utility.appVersion);
         setFocusCycleRoot(false);
@@ -179,7 +214,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("jprinteradmin/language"); // NOI18N
         readPrData.setText(bundle.getString("READ PRINTER DATA")); // NOI18N
         readPrData.setFocusable(false);
         readPrData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -253,7 +287,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        fileMenu.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language_de_DE").getString("F").charAt(0));
+        fileMenu.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("kFile").charAt(0));
         fileMenu.setText(bundle.getString("FILE")); // NOI18N
         java.util.ResourceBundle bundle1 = java.util.ResourceBundle.getBundle("jprinteradmin/language_de_DE"); // NOI18N
         fileMenu.setActionCommand(bundle1.getString("FILE")); // NOI18N
@@ -296,7 +330,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuBar.add(fileMenu);
 
-        jMenuNetwork.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language_de_DE").getString("S").charAt(0));
+        jMenuNetwork.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("kSettings").charAt(0));
         jMenuNetwork.setText(bundle.getString("SETTINGS")); // NOI18N
 
         jMenuItemConnection.setText(bundle.getString("CONNECTION")); // NOI18N
@@ -341,7 +375,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuBar.add(jMenuNetwork);
 
-        jMenuPlaner.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("P").charAt(0));
+        jMenuPlaner.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("kPlaner").charAt(0));
         jMenuPlaner.setText(bundle.getString("PLANER")); // NOI18N
 
         jMenuItemCreatePlaner.setText(bundle.getString("MANAGE-PLANS")); // NOI18N
@@ -362,7 +396,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuBar.add(jMenuPlaner);
 
-        jMenuReports.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("R").charAt(0));
+        jMenuReports.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("kReport").charAt(0));
         jMenuReports.setText(bundle.getString("REPORTS")); // NOI18N
         jMenuReports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,7 +414,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuBar.add(jMenuReports);
 
-        jMenuExtras.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("x").charAt(0));
+        jMenuExtras.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("kExtras").charAt(0));
         jMenuExtras.setText(bundle.getString("EXTRAS")); // NOI18N
 
         jMenuItemSnmpWalk.setText(bundle.getString("SNMP-WALK")); // NOI18N
@@ -401,7 +435,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuBar.add(jMenuExtras);
 
-        helpMenu.setMnemonic('h');
+        helpMenu.setMnemonic(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("kHelp").charAt(0));
         helpMenu.setText(bundle.getString("HELP")); // NOI18N
 
         contentsMenuItem.setMnemonic('c');
@@ -565,6 +599,8 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldSearchKeyReleased
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+
+      
         if (this.jTable1.getSelectedRows().length > 0) {
             this.jButtonChangeSelected.setEnabled(true);
             this.jButtonDelSel.setEnabled(true);
@@ -572,16 +608,21 @@ public class MainWindow extends javax.swing.JFrame {
             this.jButtonChangeSelected.setEnabled(false);
             this.jButtonDelSel.setEnabled(false);
         }
-        if (evt.getClickCount() == 2) {
+        if (evt.getClickCount() == 2 && evt.getButton() == 1) {
             System.out.println("double click"); //NOI18N
-            PrinterWindow prW = new PrinterWindow(this, false);
-            prW.printerId = printerIds.get(this.jTable1.convertRowIndexToModel(jTable1.getSelectedRow()));
-            prW.getDBValues(prW);
-            //this.setEnabled(false);
-            prW.setVisible(true);
+            openPrinterWindow();
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void openPrinterWindow() {
+        PrinterWindow prW = new PrinterWindow(this, false);
+        prW.printerId = printerIds.get(this.jTable1.convertRowIndexToModel(jTable1.getSelectedRow()));
+        prW.getDBValues(prW);
+        //this.setEnabled(false);
+        prW.setVisible(true);
+    }
+    
+    
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.jTextFieldSearch.setText(""); //NOI18N
         this.getDBValues();
@@ -711,6 +752,58 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSearchKeyPressed
 
+    private void jPopupMenu1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPopupMenu1PropertyChange
+        if ( evt.getPropertyName().equals("maxLabelWidth") ) {
+            highlightTableRow();
+        }    
+    }//GEN-LAST:event_jPopupMenu1PropertyChange
+
+    private void jMenuItemOpenPrinterWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemOpenPrinterWindowActionPerformed
+        openPrinterWindow();
+    }//GEN-LAST:event_jMenuItemOpenPrinterWindowActionPerformed
+
+    private void jMenuItemOpenURLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemOpenURLActionPerformed
+
+        String query = "select request_value from " +
+            "PRINTER_VALUES " +
+            "INNER JOIN REQUEST_METHOD_VALUES ON REQUEST_METHOD_VALUES.request_values_id =PRINTER_VALUES.request_value_id " +
+            "WHERE REQUEST_METHOD_VALUES.kind='internal' AND REQUEST_METHOD_VALUES.request_method_values_x_id = 1 AND printer_id = " +
+                printerIds.get(this.jTable1.convertRowIndexToModel(jTable1.getSelectedRow())) ;
+        try {
+            Statement stat = Database.conn.createStatement();
+            ResultSet rs = stat.executeQuery(query);
+            while ( rs.next() ) {
+                Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+                if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+                    try {
+                        desktop.browse(URI.create("http://" + rs.getString(1)));
+                    } catch (IOException | SQLException e) {
+                        Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, e);
+                    }
+                }                
+            }
+        } catch (SQLException ex1) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex1);
+        }
+        
+    }//GEN-LAST:event_jMenuItemOpenURLActionPerformed
+
+    private void highlightTableRow() {
+            // get the coordinates of the mouse click
+            int x = getPointerInfo().getLocation().x - jTable1.getLocationOnScreen().x;
+            int y = getPointerInfo().getLocation().y - jTable1.getLocationOnScreen().y;
+            Point p = new Point(x,y);
+            
+            // get the row index that contains that coordinate
+            int rowNumber = jTable1.rowAtPoint( p );
+
+            // Get the ListSelectionModel of the JTable
+            ListSelectionModel model = jTable1.getSelectionModel();
+
+            // set the selected interval of rows. Using the "rowNumber"
+            // variable for the beginning and end selects only that one row.
+            model.setSelectionInterval( rowNumber, rowNumber );        
+    }
     /**
      * @param args the command line arguments
      */
@@ -905,6 +998,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemGeneralSettings;
     private javax.swing.JMenuItem jMenuItemManageReports;
     private javax.swing.JMenuItem jMenuItemNetwork;
+    private javax.swing.JMenuItem jMenuItemOpenPrinterWindow;
+    private javax.swing.JMenuItem jMenuItemOpenURL;
     private javax.swing.JMenuItem jMenuItemPrinterTypes;
     private javax.swing.JMenuItem jMenuItemRequestSettings;
     private javax.swing.JMenuItem jMenuItemSnmpWalk;
@@ -912,6 +1007,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuNetwork;
     private javax.swing.JMenu jMenuPlaner;
     private javax.swing.JMenu jMenuReports;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldSearch;

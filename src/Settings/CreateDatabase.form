@@ -54,10 +54,8 @@
                   <Component id="dbName" alignment="0" max="32767" attributes="0"/>
                   <Component id="dbUser" alignment="0" max="32767" attributes="0"/>
                   <Component id="dbPassword" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="dbAdminUser" alignment="0" pref="148" max="32767" attributes="0"/>
-                      <Component id="dbAdminPassword" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="dbAdminUser" alignment="0" pref="148" max="32767" attributes="0"/>
+                  <Component id="dbAdminPassword" alignment="0" max="32767" attributes="0"/>
                   <Component id="jTextFieldInstance" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="27" max="32767" attributes="0"/>

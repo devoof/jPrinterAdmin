@@ -288,7 +288,8 @@ public class Utility {
         if (string != null){
             switch (Utility.iniDatabaseType){
                 case "mysql":
-                    string = string.replace("'", "\\'");                                     
+                    string = string.replace("'", "\\'");
+                    string = string.replace("\\", "\\\\");
                     break;
                 case "local":    
                     string = string.replace("'", "\\'");                                     

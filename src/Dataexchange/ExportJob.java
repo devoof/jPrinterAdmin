@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -62,7 +63,7 @@ public class ExportJob implements Runnable {
                         }
                         Statement stat = Database.conn.createStatement();
                         String statementData = "SELECT " + Utility.implode(fieldsWQ, ",") + " FROM " + Utility.dbQuotes + rsTables.getString(3) + Utility.dbQuotes;
-                        String deleteStatement = "DELETE FROM <delimiter>" + rsTables.getString(3) + "<delimiter>";
+                        String deleteStatement = "DELETE FROM <delimiter>" + rsTables.getString(3).toUpperCase() + "<delimiter>";
                         writer.write(deleteStatement + System.getProperty("line.separator"));
                         ResultSet rsTableData = stat.executeQuery(statementData);
                         int iDatasets=0;
@@ -80,7 +81,7 @@ public class ExportJob implements Runnable {
                             if (gui) {
                                 jprinteradmin.JPrinterAdmin.mw.ex.statusBarLabel.setText(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("EXPORTING TABLE") + " " + rsTables.getString(3) + " " + java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("DATASET") + " " + ++iDatasets);
                             }
-                            String insStatement = "INSERT INTO <delimiter>" + rsTables.getString(3) + "<delimiter> (" + Utility.implode(fieldsWUQ, ",") + ") "
+                            String insStatement = "INSERT INTO <delimiter>" + rsTables.getString(3).toUpperCase() + "<delimiter> (" + Utility.implode(fieldsWUQ, ",") + ") "
                                     + " VALUES (" + Utility.implode(data, ",") + ")";
                             writer.write(insStatement + System.getProperty("line.separator"));
                             
@@ -94,22 +95,25 @@ public class ExportJob implements Runnable {
                     
                     writer.flush();
                     Statement stat = Database.conn.createStatement();
+                    Statement stat2 = Database.conn.createStatement();
                     if ( this.id > -1 ) {
                         
                         String statementQueryOldFiles = "SELECT file_url, id FROM EXPORT_JOB_FILES WHERE export_job_id = " + this.id + " ORDER BY id desc";
+                        System.out.println(statementQueryOldFiles);
                         ResultSet rs = stat.executeQuery(statementQueryOldFiles);
                         if ( this.keepExports > -1 ) {
                             int i = 0;
+                            
                             while (rs.next()) {
-                                i++;
-                                if (i > this.keepExports + 1) {
+                                i++;                              
+                                if (i > this.keepExports ) {
                                     File file2del = new File(rs.getString(1));
                                     if (file2del.exists()) {
                                         file2del.delete();
                                     }
-                                    stat.execute("DELETE FROM EXPORT_JOB_FILES WHERE id = " + rs.getString(2));
-                                }
-                                
+                                    stat2.execute("DELETE FROM EXPORT_JOB_FILES WHERE id = " + rs.getString(2));
+                                    System.out.println("File " + rs.getString(1) + " deleted");
+                                }    
                             }
                         }
                     
@@ -128,15 +132,19 @@ public class ExportJob implements Runnable {
                 Logger.getLogger(ExportWindow.class.getName()).log(Level.SEVERE, null, ex);
                 if (gui) {
                     jprinteradmin.JPrinterAdmin.mw.ex.statusBarLabel.setText(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("AN ERROR OCCURRED") + " " + ex.getLocalizedMessage());
+                    System.out.println(Arrays.toString(ex.getStackTrace()));
                 } else {
                     message = ex.getLocalizedMessage();
+                    System.out.println(Arrays.toString(ex.getStackTrace()));
                 }             
             } catch (IOException ex) {
                 Logger.getLogger(ExportJob.class.getName()).log(Level.SEVERE, null, ex);
                 if (gui) {
                     jprinteradmin.JPrinterAdmin.mw.ex.statusBarLabel.setText(java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("AN ERROR OCCURRED") + " " + ex.getLocalizedMessage());
+                    System.out.println(Arrays.toString(ex.getStackTrace()));
                 } else {
                     message = ex.getLocalizedMessage();
+                    System.out.println(Arrays.toString(ex.getStackTrace()));
                 }           
             }   
             Database.unlock();

@@ -307,15 +307,15 @@ public class CreateDatabase extends javax.swing.JDialog {
 
     private void createTables(Connection conn) throws SQLException {
         Statement stat = conn.createStatement();
-        stat.executeUpdate("CREATE TABLE  BASE (name VARCHAR(30), value VARCHAR(30),PRIMARY KEY(name))");
+        stat.executeUpdate("CREATE TABLE BASE (name VARCHAR(30), value VARCHAR(30),PRIMARY KEY(name))");
         stat.executeUpdate("CREATE TABLE IP_AREAS (id int NOT NULL, startip varchar(15), endip varchar(15), customer varchar(30), PRIMARY KEY (id))");
         stat.executeUpdate("CREATE TABLE DBLOCKS(" + Utility.dbQuotes + "user" + Utility.dbQuotes + " VARCHAR(20) not null," + Utility.dbQuotes + "table" + Utility.dbQuotes + " VARCHAR(20) not null," + Utility.dbQuotes + "id" + Utility.dbQuotes + " INT not null," + Utility.dbQuotes + "time" + Utility.dbQuotes + " DATETIME, primary key (" + Utility.dbQuotes + "user" + Utility.dbQuotes + ", " + Utility.dbQuotes + "table" + Utility.dbQuotes + ", " + Utility.dbQuotes + "id" + Utility.dbQuotes + "))");
         stat.executeUpdate("CREATE TABLE REQUEST_VALUES (id int NOT NULL, " + Utility.dbQuotes + "name" + Utility.dbQuotes + " VARCHAR(40), " + Utility.dbQuotes + "type" + Utility.dbQuotes + " VARCHAR(10), " + Utility.dbQuotes + "view" + Utility.dbQuotes + " integer, " + Utility.dbQuotes + "search" + Utility.dbQuotes + " int, identification int, " + Utility.dbQuotes + "order" + Utility.dbQuotes + " int, counter int, PRIMARY KEY (id))");
         stat.executeUpdate("CREATE TABLE REQUEST_METHOD (id int NOT NULL, " + Utility.dbQuotes + "name" + Utility.dbQuotes + " VARCHAR(40), defaultMethod int, PRIMARY KEY (id))");
         stat.executeUpdate("CREATE TABLE REQUEST_METHOD_VALUES (request_method_id int NOT NULL, request_values_id int NOT NULL, kind VARCHAR(11) NOT NULL, request_method_values_x_id int not null, PRIMARY KEY (request_method_id, request_values_id))");
         stat.executeUpdate("CREATE TABLE REQUEST_METHOD_VALUES_SNMP (id int NOT NULL, oid VARCHAR(40) NOT NULL,hexStringConversion int null, PRIMARY KEY(id))");
-        stat.executeUpdate("CREATE TABLE DEVICE_TYPES (id int NOT NULL, " + Utility.dbQuotes + "name" + Utility.dbQuotes + " VARCHAR(40), request_method_id int, PRIMARY KEY (id))");
-        stat.executeUpdate("CREATE TABLE PRINTER (id int NOT NULL, identificationString VARCHAR(40), firstSeen DATETIME NULL, lastSeen DATETIME NULL, PRIMARY KEY (id))");
+        stat.executeUpdate("CREATE TABLE DEVICE_TYPES (id int NOT NULL, " + Utility.dbQuotes + "name" + Utility.dbQuotes + " VARCHAR(200), request_method_id int, PRIMARY KEY (id))");
+        stat.executeUpdate("CREATE TABLE PRINTER (id int NOT NULL, identificationString VARCHAR(150), firstSeen DATETIME NULL, lastSeen DATETIME NULL, PRIMARY KEY (id))");
         stat.executeUpdate("CREATE TABLE PRINTER_COUNTER_VALUES (printer_id int NOT NULL, request_value_id int NOT NULL, " + Utility.dbQuotes + "time" + Utility.dbQuotes + " DATETIME NOT NULL, requestvalue float, PRIMARY KEY (printer_id, request_value_id, " + Utility.dbQuotes + "time" + Utility.dbQuotes + "))");
         stat.executeUpdate("CREATE TABLE PRINTER_VALUES (printer_id int NOT NULL, request_value_id int NOT NULL, request_value VARCHAR(60), PRIMARY KEY (printer_id, request_value_id))");
         stat.executeUpdate("CREATE TABLE REQUEST_METHOD_VALUES_HTML (id int NOT NULL, request_url VARCHAR(60), authentication_url VARCHAR(60), cookie_name VARCHAR(20), " + Utility.dbQuotes + "get" + Utility.dbQuotes + " VARCHAR(5), " + Utility.dbQuotes + "value" + Utility.dbQuotes + " int NOT NULL, tag VARCHAR(20), PRIMARY KEY (id))");
@@ -337,8 +337,8 @@ public class CreateDatabase extends javax.swing.JDialog {
 
     private void fillDB(Connection conn) throws SQLException {
         Statement stat = conn.createStatement();
-        stat.executeUpdate("INSERT INTO base (name, value) VALUES ('dbversion','" + jprinteradmin.Utility.dbVersion + "')");
-        stat.executeUpdate("INSERT INTO base (name, value) VALUES ('appversion','" + jprinteradmin.Utility.appVersion + "')");
+        stat.executeUpdate("INSERT INTO BASE (name, value) VALUES ('dbversion','" + jprinteradmin.Utility.dbVersion + "')");
+        stat.executeUpdate("INSERT INTO BASE (name, value) VALUES ('appversion','" + jprinteradmin.Utility.appVersion + "')");
         stat.executeUpdate("INSERT INTO REQUEST_METHOD (id, " + Utility.dbQuotes + "name" + Utility.dbQuotes + ", defaultMethod) VALUES (0, 'default',1)");
         stat.executeUpdate("INSERT INTO REQUEST_VALUES (id, " + Utility.dbQuotes + "name" + Utility.dbQuotes + ", " + Utility.dbQuotes + "type" + Utility.dbQuotes + ", " + Utility.dbQuotes + "view" + Utility.dbQuotes + ", search, identification, " + Utility.dbQuotes + "order" + Utility.dbQuotes + ", " + Utility.dbQuotes + "counter" + Utility.dbQuotes + ") VALUES ('0', 'devicetype', 'String', 1, 1, 0,1,0)");
         stat.executeUpdate("INSERT INTO REQUEST_VALUES (id, " + Utility.dbQuotes + "name" + Utility.dbQuotes + ", " + Utility.dbQuotes + "type" + Utility.dbQuotes + ", " + Utility.dbQuotes + "view" + Utility.dbQuotes + ", search, identification, " + Utility.dbQuotes + "order" + Utility.dbQuotes + ", " + Utility.dbQuotes + "counter" + Utility.dbQuotes + ") VALUES (1, 'ip', 'String', 1, 1, 0,2,0)");
