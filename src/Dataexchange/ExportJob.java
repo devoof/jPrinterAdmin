@@ -1,8 +1,10 @@
 package Dataexchange;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -47,8 +49,8 @@ public class ExportJob implements Runnable {
                 String[] types = {"TABLE"};
                 ResultSet rsTables = metaData.getTables(null, null, null, types);
                 String fileUrl = folder + File.separator + exportName + "_" + sdate + ".jpabackup";
-                File file = new File(fileUrl);
-                try (FileWriter writer = new FileWriter(file,true)) {
+                FileOutputStream fileStream = new FileOutputStream(new File(fileUrl));
+                try (OutputStreamWriter  writer = new OutputStreamWriter (fileStream,"UTF-8")) {
                     writer.write("db-version:" + Utility.dbVersion + System.getProperty("line.separator"));
                     while (rsTables.next()) {
                         

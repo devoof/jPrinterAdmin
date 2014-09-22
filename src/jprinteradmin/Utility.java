@@ -315,7 +315,7 @@ public class Utility {
         string = string.replace("ß", "&szlig;");
         string = string.replace("<", "&gt;");
         string = string.replace(">", "&lt;");
-        string = string.replace(">", "&nbsp;");
+        string = string.replace(" ", "&nbsp;");
         
         return string;
     }
