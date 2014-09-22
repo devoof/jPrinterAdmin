@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jprinteradmin by devoof</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Jprinteradmin</h1>
+        <p>It should be able to retrieve printer-data from printers in the local network via - snmp and - http and store them in a database.</p>
+        <p class="view"><a href="https://github.com/devoof/jPrinterAdmin">View the Project on GitHub <small>devoof/jPrinterAdmin</small></a></p>
+        <ul>
+          <li><a href="https://github.com/devoof/jPrinterAdmin/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/devoof/jPrinterAdmin/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/devoof/jPrinterAdmin">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="jprinteradmin" class="anchor" href="#jprinteradmin"><span class="octicon octicon-link"></span></a>jPrinterAdmin</h1>
+
+<p><img src="http://web163.we4c5.netcup.net/oof/oof/jpa05.png" alt="Screenshot"></p>
+
+<p>About</p>
+
+<p>jPrinterAdmin is a pure hobby-project under development.</p>
+
+<p>It should be able to retrieve printer-data from printers in the local network via</p>
+
+<ul>
+<li><p>snmp and</p></li>
+<li><p>http</p></li>
+</ul><p>and store them in a database. You can choose between</p>
+
+<ul>
+<li><p>local (sqlite)</p></li>
+<li><p>MYSQL and</p></li>
+<li><p>Microsoft SQL-Server.</p></li>
+</ul><p>You can create reports and output them as
+<img src="http://web163.we4c5.netcup.net/oof/oof/jpa05.png" alt="screenshot"></p>
+
+<ul>
+<li><p>HTML</p></li>
+<li><p>OpenDocument Spreadsheet (odt) or</p></li>
+<li><p>comma-separated-values (csv)</p></li>
+</ul><p>to the local file-system or an email-address via smtp (also secured).</p>
+
+<p>You can add following jobs to schedule which can be automated:</p>
+
+<ul>
+<li><p>reading printer data</p></li>
+<li><p>creating and sending reports</p></li>
+<li><p>backup the database</p></li>
+</ul><p>It is written in Java in the netbeans ide and published under the gpl v2 license.</p>
+
+<p>It uses the following 3rd Party libraries and partly modified sample code.</p>
+
+<p>snmp4j 2.1</p>
+
+<p>ini4j 0.5.2</p>
+
+<p>sqlitjdbc v0.56</p>
+
+<p>jsoup 1.7.2</p>
+
+<p>mysql-connector 5.1.7</p>
+
+<p>jtds 1.2</p>
+
+<p>jOpenDocument 1.3</p>
+
+<p>Ways to start the application</p>
+
+<ol>
+<li>Executing the jar file</li>
+</ol><p>Copy the jar-file and the lib-folder to a folder the user has write access to
+E.g. /home//jprinteradmin or c:\users&lt;username&gt;\jprinteradmin.
+Make a shortcut e.g. a jprinteradmin.bat file with the content “javaw -jar ”.</p>
+
+<ol>
+<li>Using Web-Start
+Place the whole folder to a web-server.
+Add the certificate to signer-ca in the java control panel under “security” → “certificates”
+Navigate your Browser to the place where you put the folder in.
+Start the launch.jnlp file.
+Trust the application, if you wants to start it
+You can make short-cut from the java control panel by navigate to “Basic” → “View temporary files” → Right Click on jprinteradmin → install shortcut</li>
+</ol>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/devoof">devoof</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
