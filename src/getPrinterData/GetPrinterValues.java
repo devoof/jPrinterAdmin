@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -224,7 +225,15 @@ public class GetPrinterValues implements Runnable {
                                 String queryValue = "INSERT INTO PRINTER_VALUES (printer_id,request_value_id,request_value) VALUES(" + printerId + "," + requestValueId + ",'" + Utility.escapeSqlString(value) + "')";
                                 if (!"userdefined".equals(kind)) {
                                     statValue.executeUpdate("DELETE FROM PRINTER_VALUES WHERE printer_id=" + printerId + " AND request_value_id=" + rsValues.getInt(1));
-                                    statValue.executeUpdate(queryValue);
+                                    try  {
+                                        statValue.executeUpdate(queryValue);
+                                    } catch (Exception ex) {
+                                        System.out.println(queryValue);
+                                        System.out.println(Arrays.toString(ex.getStackTrace()));
+                                        if ( gui ) {
+                                            jprinteradmin.JPrinterAdmin.mw.statusBarLabel.setText(ex.getLocalizedMessage() + " - " + "going on");
+                                        }
+                                    }
                                 }
                                 if (counter == 1) {
 

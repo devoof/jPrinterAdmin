@@ -37,7 +37,7 @@ public class PlanerWindow {
                     startDate = rs.getString(1);
                 }
                 String result = java.util.ResourceBundle.getBundle("jprinteradmin/language").getString("DATASET IS LOCKED. USER:") + isLock.user + java.util.ResourceBundle.getBundle("jprinteradmin/language").getString(". DATE: ") + isLock.datetime + "."; //NOI18N
-                String updateQuery = "INSERT INTO SCHEDULE_LOG (id, startDate, finishedDate, schedule_id, job_id, " + Utility.dbQuotes + "result" + Utility.dbQuotes + ") VALUES ('" + Database.getNextId("SCHEDULE_LOG") + "', '" + startDate + "', '" + startDate + "', -1, 'NULL', '" + result + "')";             //NOI18N
+                String updateQuery = "INSERT INTO SCHEDULE_LOG (id, startDate, finishedDate, schedule_id, job_id, " + Utility.dbQuotes + "result" + Utility.dbQuotes + ") VALUES ('" + Database.getNextId("SCHEDULE_LOG") + "', '" + startDate + "', '" + startDate + "', -1, NULL, '" + result + "')";             //NOI18N
                 st.execute(updateQuery);
             } catch (SQLException ex) {
                 Logger.getLogger(PlanerWindow.class.getName()).log(Level.SEVERE, null, ex);

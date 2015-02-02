@@ -286,8 +286,9 @@ public class PrinterReport {
                             ins[i] = list2.get(i);
                         }
                     }
-                    this.reportAsList.add(ins);     
-                    this.reportLinesSubTotal.add(i2);
+                         
+                    this.reportLinesSubTotal.add(reportAsList.size());
+                    this.reportAsList.add(ins);
                     i2++;
                     list2.clear();
 
@@ -305,7 +306,7 @@ public class PrinterReport {
                     Statement st2 = Database.conn.createStatement();
                     ResultSet rs2 = st2.executeQuery(query);
 
-                    while (rs2.next()) {
+                    if (rs2.next()) {
                         if (i2 == 0) {
                             if (this.outputFields.get(i)[2].length() > 0){
                                 this.reportHeadings.add(this.outputFields.get(i)[2]);
@@ -324,6 +325,8 @@ public class PrinterReport {
                         } else {
                             list2.add("");
                         }
+                    } else {
+                        list2.add("");
                     }
                 }
                 int iTotals = 0;
@@ -526,8 +529,9 @@ public class PrinterReport {
                for (int i = 0; i < size; i++) {
                    ins[i] = list2.get(i);
                }
-               this.reportAsList.add(ins);    
-               this.reportLinesSubTotal.add(i2);
+                
+               this.reportLinesSubTotal.add(reportAsList.size());
+               this.reportAsList.add(ins);   
                list2.clear();
                
             }  
@@ -555,7 +559,7 @@ public class PrinterReport {
                 for (int i = 0; i < size; i++) {
                     ins[i] = list2.get(i);
                 }             
-                this.reportLinesTotal.add(i2);
+                this.reportLinesTotal.add(reportAsList.size());
                 this.reportAsList.add(ins);
             }
             list2.clear();
@@ -583,7 +587,7 @@ public class PrinterReport {
                 for (int i = 0; i < size; i++) {
                     ins[i] = list2.get(i);
                 }     
-                this.reportLinesTotal.add(i2);
+                this.reportLinesTotal.add(reportAsList.size());
                 this.reportAsList.add(ins);
             }         
         } catch (SQLException ex) {
@@ -791,15 +795,15 @@ public class PrinterReport {
             for ( int  i = 0 ; i < this.reportHeadings.size() ; i++ ) {
                 mtm.getCellAt(0, i).setBackgroundColor(Color.LIGHT_GRAY);
             }
-            for ( int i = 0 ; i < this.reportLinesSubTotal.size() ; i++ ) {
-                for ( int  ii = 0 ; ii < this.reportHeadings.size() ; ii++ ) {
-                    mtm.getCellAt(this.reportLinesSubTotal.get(i) + 1, ii).setBackgroundColor(Color.yellow);
+            for (Integer reportLinesSubTotal1 : this.reportLinesSubTotal) {
+                for (int ii = 0; ii < this.reportHeadings.size(); ii++) {
+                    mtm.getCellAt(reportLinesSubTotal1 + 1, ii).setBackgroundColor(Color.yellow);
                 }                
             }
-            for ( int i = 0 ; i < this.reportLinesTotal.size() ; i++ ) {
-                for ( int  ii = 0 ; ii < this.reportHeadings.size() ; ii++ ) {
-                    mtm.getCellAt(this.reportLinesTotal.get(i) + 1, ii).setBackgroundColor(Color.green);
-                }                
+            for (Integer reportLinesTotal1 : this.reportLinesTotal) {
+                for (int ii = 0; ii < this.reportHeadings.size(); ii++) {
+                    mtm.getCellAt(reportLinesTotal1 + 1, ii).setBackgroundColor(Color.green);
+                }
             }            
             ods.saveAs(file1);
         } catch (FileNotFoundException ex) {

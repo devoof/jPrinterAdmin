@@ -1,0 +1,8 @@
+changelog jprinteradmin
+
+developer: stefan
+date: 2014-10-02
+version: 0.5
+kind: bugfix
+problem: in ther reports the formatting of the total-lines where 1 too deep if subtotals includes
+solution: changed the setting of the earraylists reportLinesSubTotal and reportLinesTotal from counter (int) i2 to reportAsList.size()
