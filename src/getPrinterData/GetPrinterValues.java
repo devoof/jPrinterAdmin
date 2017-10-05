@@ -126,7 +126,12 @@ public class GetPrinterValues implements Runnable {
 
                                     }
                             }
-
+                            if (sysDescr.startsWith("Lexmark")) {
+                                String[] sysDescrArray = sysDescr.split(" ");
+                                if (sysDescrArray.length > 1) {
+                                    sysDescr = sysDescrArray[0] + " " + sysDescrArray[1];
+                                }
+                            }
                         } catch (Exception ex) {
                         }
                         int devicetypeid;
@@ -176,7 +181,7 @@ public class GetPrinterValues implements Runnable {
                                 String value = "";
                                 switch (kind) {
                                     case "snmp":
-                                        value = GetPrinterValuesSnmp.getSnmpValue(xid, ip);
+                                        value = GetPrinterValuesSnmp.getSnmpValue(xid, ip).replace("noSuchObject", "");
                                         break;
                                     case "html":
                                         value = GetPrinterValuesHTML.getHTMLValueByDbSettings(xid, ip);
