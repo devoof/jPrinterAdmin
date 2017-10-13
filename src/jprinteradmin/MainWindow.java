@@ -772,7 +772,7 @@ public class MainWindow extends javax.swing.JFrame {
         try {
             Statement stat = Database.conn.createStatement();
             ResultSet rs = stat.executeQuery(query);
-            while ( rs.next() ) {
+            if ( rs.next() ) {
                 Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
                 if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
                     try {
